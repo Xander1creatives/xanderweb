@@ -3,9 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Gallery with Red Caption Effect</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Xander1creatives</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@800&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #010309;
+            --secondary: #2575fc;
+            --accent: #ff4e7b;
+            --dark: #1a1a2e;
+            --light: #00050a;
+        }
+        
         * {
             margin: 0;
             padding: 0;
@@ -13,8 +26,8 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
-        body {
-            background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+       body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -22,14 +35,13 @@
             padding: 40px 20px;
             color: #fff;
         }
-        
         header {
             text-align: center;
             margin-bottom: 50px;
             max-width: 800px;
         }
         
-        h1 {
+         h1 {
             font-size: 3.5rem;
             margin-bottom: 15px;
             background: linear-gradient(to right, #ff6b6b, #ff8e8e);
@@ -38,14 +50,16 @@
             color: transparent;
             text-shadow: 0 2px 10px rgba(255, 0, 0, 0.2);
         }
-        
+        h3 {
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: smaller;
+        }
         .subtitle {
             font-size: 1.2rem;
             color: #a0a0c0;
             max-width: 600px;
             margin: 0 auto;
         }
-        
         .gallery-wrapper {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -66,7 +80,7 @@
         
         .cbp-item:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(255, 200, 0, 0.884);
+            box-shadow: 0 15px 40px rgba(255, 200, 0, 0.25);
         }
         
         .cbp-img-wrapper {
@@ -163,8 +177,7 @@
             width: 100%;
             max-width: 800px;
         }
-        
-        @media (max-width: 768px) {
+         @media (max-width: 768px) {
             h1 {
                 font-size: 2.5rem;
             }
@@ -173,344 +186,696 @@
                 grid-template-columns: 1fr;
             }
         }
+        
+        /* Navigation Bar */
+        .navbar {
+            background: #030007;
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: white;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .navbar-brand span {
+            color: var(--accent);
+        }
+        
+        .nav-link {
+            color: #fffb02;
+            font-weight: 500;
+            margin: 0 8px;
+            padding: 8px 15px !important;
+            border-radius: 30px;
+            transition: all 0.5s ease;
+            position: relative;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: white !important;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: #ffffff;
+            border-radius: 2px;
+            transition: all 0.6s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 70%;
+        }
+        
+        .navbar-toggler {
+            border: none;
+            color: white;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: rgb(4, 1, 14);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon fill="rgba(255,255,255,0.03)" points="0,100 100,0 100,100"/></svg>');
+            background-size: cover;
+        }
+        
+        .hero-content {
+            color: rgb(255, 255, 255);
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        /* Buttons */
+        .btn {
+            border-radius: 30px;
+            padding: 12px 28px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(#010107 100%);
+            box-shadow: 0 10px 20px rgb(54, 5, 54);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(229, 233, 2, 0.89);
+        }
+        
+        .btn-outline-light {
+            border: 2px solid white;
+            color: white;
+            background: transparent;
+        }
+        
+        .btn-outline-light:hover {
+            background: white;
+            color: var(--primary);
+        }
+        
+        /* Section Styling */
+        section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+        
+       
+        
+       
+        
+        
+        
+        
+        
+       
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: rgb(255, 255, 255);
+            padding: 60px 0 30px;
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        
+        .footer-logo span {
+            color: var(--accent);
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: #fffb02;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: orangered;
+            transform: translateY(-3px);
+        }
+        
+        /* Loading Spinner */
+        .spinner-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(26, 26, 46, 0.8);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .spinner {
+            width: 70px;
+            height: 70px;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 5px solid var(--accent);
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            section {
+                padding: 80px 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .project-slide img {
+                height: 350px;
+            }
+            
+            .carousel-item img {
+                height: 450px;
+            }
+        }
+        
+        /* Animation */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+       
+        /* Animation classes */
+        .slide-up {
+            opacity: 0;
+            transform: translateY(250px);
+            transition: opacity 0.30s, transform 1.40s;
+        }
+        
+        .slide-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        h2{
+            padding-top: 30px;
+        }
     </style>
 </head>
 <body>
+    <!-- Navigation Bar -->
+     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+           <a class="navbar-brand" href="#home">
+                <h1 class="m-0"> <img src="XANDER1 LOGO.png" style="width: 50px; height: 50px;"></h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="projects.html">Home</a></li>
+                </ul>
+                
+            </div>
+        </div>
+    </nav>
+
+
+
     <header>
-        <h1>Red Caption Gallery</h1>
-        <p class="subtitle">Hover over images to reveal captions with a vibrant red overlay effect</p>
+        <h1>Xander1creatives Portfolio</h1>
+        <p class="subtitle">--Design--Illustrate--Motion Graphic--</p>
     </header>
-    
+
+
     <div class="gallery-wrapper">
         <!-- Item 1 -->
-         <a href="https://www.youtube.com/">
+         <a href="ClientC-500.html">
         <div class="cbp-item">
             <div class="cbp-img-wrapper">
-                 <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b" alt="Mountain Landscape" class="cbp-img">
+                 <img src="C-shoot.png" style="height: fit-content;" alt="Mountain Landscape" class="cbp-img">
                 <div class="overlay"></div>
                 <div class="icon">
                     <i class="fas fa-search-plus"></i>
                 </div>
             </div>
             <div class="cbp-caption cbp-caption-active">
-                <h3>Mountain Majesty</h3>
-                <p>Snow-capped peaks under a clear blue sky, with lush green valleys below creating a stunning natural contrast.</p>
+                <h3>PASSION PROJECT</h3>
+                <p>C-shoot a product of TradeKings.</p>
             </div>
         </div>
         </a>
         
         <!-- Item 2 -->
-          <a href="https://www.youtube.com/">
+          <a href="Clientmilkit.html">
         <div class="cbp-item">
             <div class="cbp-img-wrapper">
-                <img src="https://images.unsplash.com/photo-1475924156734-496f6cac6ec1" alt="Ocean Waves" class="cbp-img">
+                <img src="milkit cello.png" style="height: fit-content;" alt="Ocean Waves" class="cbp-img">
                 <div class="overlay"></div>
                 <div class="icon">
                     <i class="fas fa-water"></i>
                 </div>
             </div>
             <div class="cbp-caption">
-                <h3>Ocean Waves</h3>
-                <p>Turquoise waters crashing against weathered rocks, creating mesmerizing patterns of foam and spray.</p>
+                <h3>PASSION PROJECT</h3>
+                <p>Milkit a product of TradeKings.</p>
             </div>
         </div>
         </a>
-        
-        <!-- Item 3 -->
-        <div class="cbp-item">
-            <a href="https://www.youtube.com/">
-            <div class="cbp-img-wrapper">
-                <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e" alt="Forest Path" class="cbp-img">
-                <div class="overlay"></div>
-                <div class="icon">
-                    <i class="fas fa-tree"></i>
-                </div>
-            </div>
-            <div class="cbp-caption">
-                <h3>Forest Path</h3>
-                <p>A winding trail through an ancient forest, where sunlight filters through the canopy creating magical light patterns.</p>
-            </div>
-        </div>
-        </a>
-        
-        <!-- Item 4 -->
-         <a href="https://www.youtube.com/">
-         <div class="cbp-item">
-            <div class="cbp-img-wrapper">
-                <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e" alt="Desert Dunes" class="cbp-img">
-                <div class="overlay"></div>
-                <div class="icon">
-                    <i class="fas fa-sun"></i>
-                </div>
-            </div>
-            <div class="cbp-caption">
-                <h3>Desert Dunes</h3>
-                <p>Golden sand dunes sculpted by wind, creating ever-changing patterns under the vast desert sky.</p>
-            </div>
-        </div>
-        </a>
-        
-        <!-- Item 5 -->
-         <a href="https://www.youtube.com/">
+        <!-- Item 1 -->
+         <a href="Clientfiero.html">
         <div class="cbp-item">
             <div class="cbp-img-wrapper">
-                <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05" alt="Misty Lake" class="cbp-img">
+                 <img src="fiero dev.png" style="height: fit-content;" alt="Mountain Landscape" class="cbp-img">
                 <div class="overlay"></div>
                 <div class="icon">
-                    <i class="fas fa-cloud"></i>
+                    <i class="fas fa-search-plus"></i>
                 </div>
             </div>
-            <div class="cbp-caption">
-                <h3>Misty Lake</h3>
-                <p>Morning mist rising from a tranquil lake, with mountains reflecting in the perfectly still water.</p>
+            <div class="cbp-caption cbp-caption-active">
+                <h3>Fiero</h3>
+                <p>Fiero Technologies is dedicated to providing top-notch solutions in web development, app creation, and more.</p>
             </div>
         </div>
         </a>
-        <!-- Item 6 -->
-         <a href="https://www.youtube.com/">
+        <!-- Item 1 -->
+         <a href="Clientmojo.html">
         <div class="cbp-item">
             <div class="cbp-img-wrapper">
-                <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05" alt="Misty Lake" class="cbp-img">
+                 <img src="mojo orange.png" style="height:fit-content;"alt="Mountain Landscape" class="cbp-img">
                 <div class="overlay"></div>
                 <div class="icon">
-                    <i class="fas fa-cloud"></i>
+                    <i class="fas fa-search-plus"></i>
                 </div>
             </div>
-            <div class="cbp-caption">
-                <h3>Misty Lake</h3>
-                <p>Morning mist rising from a tranquil lake, with mountains reflecting in the perfectly still water.</p>
+            <div class="cbp-caption cbp-caption-active">
+                <h3>PASSION PROJECT</h3>
+                <p>Mojo A product of Bigtree, TradeKings.</p>
             </div>
         </div>
         </a>
-        <!-- Item 5 -->
-         <a href="https://www.youtube.com/">
+        <!-- Item 1 -->
+         <a href="Clientcreambell.html">
         <div class="cbp-item">
             <div class="cbp-img-wrapper">
-                <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05" alt="Misty Lake" class="cbp-img">
+                 <img src="creambell3.png" style="height: fit-content;" alt="Mountain Landscape" class="cbp-img">
                 <div class="overlay"></div>
                 <div class="icon">
-                    <i class="fas fa-cloud"></i>
+                    <i class="fas fa-search-plus"></i>
                 </div>
             </div>
-            <div class="cbp-caption">
-                <h3>Misty Lake</h3>
-                <p>Morning mist rising from a tranquil lake, with mountains reflecting in the perfectly still water.</p>
+            <div class="cbp-caption cbp-caption-active">
+                <h3>Passion</h3>
+                <p>Creambell A product of Varun Beverages.</p>
             </div>
         </div>
         </a>
-        <!-- Item 5 -->
-         <a href="https://www.youtube.com/">
+        <!-- Item 1 -->
+         <a href="Clientyoghurt.html">
         <div class="cbp-item">
             <div class="cbp-img-wrapper">
-                <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05" alt="Misty Lake" class="cbp-img">
+                 <img src="creambell4.png" style="height: fit-content;" alt="Mountain Landscape" class="cbp-img">
                 <div class="overlay"></div>
                 <div class="icon">
-                    <i class="fas fa-cloud"></i>
+                    <i class="fas fa-search-plus"></i>
                 </div>
             </div>
-            <div class="cbp-caption">
-                <h3>Misty Lake</h3>
-                <p>Morning mist rising from a tranquil lake, with mountains reflecting in the perfectly still water.</p>
+            <div class="cbp-caption cbp-caption-active">
+                <h3>Passion</h3>
+                <p>Creambell Yoghurt A product of Varun Beverages.</p>
             </div>
         </div>
         </a>
-        <!-- Item 5 -->
-         <a href="https://www.youtube.com/">
+        <!-- Item 1 -->
+         <a href="ClientMikaeats.html">
         <div class="cbp-item">
             <div class="cbp-img-wrapper">
-                <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05" alt="Misty Lake" class="cbp-img">
+                 <img src="Mika eats PromoBURGERred.png" style="height: fit-content;" alt="Mountain Landscape" class="cbp-img">
                 <div class="overlay"></div>
                 <div class="icon">
-                    <i class="fas fa-cloud"></i>
+                    <i class="fas fa-search-plus"></i>
                 </div>
             </div>
-            <div class="cbp-caption">
-                <h3>Misty Lake</h3>
-                <p>Morning mist rising from a tranquil lake, with mountains reflecting in the perfectly still water.</p>
+            <div class="cbp-caption cbp-caption-active">
+                <h3>Mika Eats</h3>
+                <p>Mika Eats a sub company of Mika Group of companies.</p>
             </div>
         </div>
         </a>
-        <!-- Item 5 -->
-         <a href="https://www.youtube.com/">
+        <!-- Item 1 -->
+         <a href="Clientlabloop.html">
         <div class="cbp-item">
             <div class="cbp-img-wrapper">
-                <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05" alt="Misty Lake" class="cbp-img">
+                 <img src="spirit.png" style="height:fit-content;" alt="Mountain Landscape" class="cbp-img">
                 <div class="overlay"></div>
                 <div class="icon">
-                    <i class="fas fa-cloud"></i>
+                    <i class="fas fa-search-plus"></i>
                 </div>
             </div>
-            <div class="cbp-caption">
-                <h3>Misty Lake</h3>
-                <p>Morning mist rising from a tranquil lake, with mountains reflecting in the perfectly still water.</p>
+            <div class="cbp-caption cbp-caption-active">
+                <h3>LABLOOP SCIENTIFIC</h3>
+                <p>Labloop Scientific is specialised in Clinic tech and Clinic furnitures.</p>
             </div>
         </div>
         </a>
-        <!-- Item 5 -->
-         <a href="https://www.youtube.com/">
+        <!-- Item 1 -->
+         <a href="ClientAmour.html">
         <div class="cbp-item">
             <div class="cbp-img-wrapper">
-                <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05" alt="Misty Lake" class="cbp-img">
+                 <img src="27.png" style="height:fit-content;" alt="Mountain Landscape" class="cbp-img">
                 <div class="overlay"></div>
                 <div class="icon">
-                    <i class="fas fa-cloud"></i>
+                    <i class="fas fa-search-plus"></i>
                 </div>
             </div>
-            <div class="cbp-caption">
-                <h3>Misty Lake</h3>
-                <p>Morning mist rising from a tranquil lake, with mountains reflecting in the perfectly still water.</p>
+            <div class="cbp-caption cbp-caption-active">
+                <h3>AMOUR WATER</h3>
+                <p>A Bottled water producer and distributor.</p>
             </div>
         </div>
         </a>
-        <!-- Item 5 -->
-         <a href="https://www.youtube.com/">
+        <!-- Item 1 -->
+         <a href="Clientstratcon.html">
         <div class="cbp-item">
             <div class="cbp-img-wrapper">
-                <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05" alt="Misty Lake" class="cbp-img">
+                 <img src="stratcon flyer-1.png" style="height:fit-content;" alt="Mountain Landscape" class="cbp-img">
                 <div class="overlay"></div>
                 <div class="icon">
-                    <i class="fas fa-cloud"></i>
+                    <i class="fas fa-search-plus"></i>
                 </div>
             </div>
-            <div class="cbp-caption">
-                <h3>Misty Lake</h3>
-                <p>Morning mist rising from a tranquil lake, with mountains reflecting in the perfectly still water.</p>
+            <div class="cbp-caption cbp-caption-active">
+                <h3>STRATCON</h3>
+                <p>A constraction company .</p>
             </div>
         </div>
         </a>
-        <!-- Item 5 -->
-         <a href="https://www.youtube.com/">
+        <!-- Item 1 -->
+         <a href="Clientmikahotels.html">
         <div class="cbp-item">
             <div class="cbp-img-wrapper">
-                <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05" alt="Misty Lake" class="cbp-img">
+                 <img src="Graduation menu.png" style="height:fit-content;"  alt="Mountain Landscape" class="cbp-img">
                 <div class="overlay"></div>
                 <div class="icon">
-                    <i class="fas fa-cloud"></i>
+                    <i class="fas fa-search-plus"></i>
                 </div>
             </div>
-            <div class="cbp-caption">
-                <h3>Misty Lake</h3>
-                <p>Morning mist rising from a tranquil lake, with mountains reflecting in the perfectly still water.</p>
+            <div class="cbp-caption cbp-caption-active">
+                <h3>MIKA HOTELS</h3>
+                <p>A Group of Hotels specialised in Accommodation, Conferences, Events etc.....</p>
             </div>
         </div>
         </a>
-        <!-- Item 5 -->
-         <a href="https://www.youtube.com/">
+        <!-- Item 1 -->
+         <a href="Clientnova.html">
         <div class="cbp-item">
             <div class="cbp-img-wrapper">
-                <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05" alt="Misty Lake" class="cbp-img">
+                 <img src="Untitled-1-2.png" style="height:fit-content;" alt="Mountain Landscape" class="cbp-img">
                 <div class="overlay"></div>
                 <div class="icon">
-                    <i class="fas fa-cloud"></i>
+                    <i class="fas fa-search-plus"></i>
                 </div>
             </div>
-            <div class="cbp-caption">
-                <h3>Misty Lake</h3>
-                <p>Morning mist rising from a tranquil lake, with mountains reflecting in the perfectly still water.</p>
+            <div class="cbp-caption cbp-caption-active">
+                <h3>NOVA</h3>
+                <p>A company that manufactures hair food.</p>
             </div>
         </div>
         </a>
-        <!-- Item 5 -->
-         <a href="https://www.youtube.com/">
+        <!-- Item 1 -->
+         <a href="Clientbet.html">
         <div class="cbp-item">
             <div class="cbp-img-wrapper">
-                <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05" alt="Misty Lake" class="cbp-img">
+                 <img src="bet2-1.png" style="height:fit-content;" alt="Mountain Landscape" class="cbp-img">
                 <div class="overlay"></div>
                 <div class="icon">
-                    <i class="fas fa-cloud"></i>
+                    <i class="fas fa-search-plus"></i>
                 </div>
             </div>
-            <div class="cbp-caption">
-                <h3>Misty Lake</h3>
-                <p>Morning mist rising from a tranquil lake, with mountains reflecting in the perfectly still water.</p>
+            <div class="cbp-caption cbp-caption-active">
+                <h3>PASSION PROJECT</h3>
+                <p>A Betting Company for casion, sports, online bets etc...</p>
             </div>
         </div>
         </a>
-        <!-- Item 5 -->
-         <a href="https://www.youtube.com/">
+        <!-- Item 1 -->
+         <a href="Clientmtn.html">
         <div class="cbp-item">
             <div class="cbp-img-wrapper">
-                <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05" alt="Misty Lake" class="cbp-img">
+                 <img src="portfmtn.png" style="height:fit-content;" alt="Mountain Landscape" class="cbp-img">
                 <div class="overlay"></div>
                 <div class="icon">
-                    <i class="fas fa-cloud"></i>
+                    <i class="fas fa-search-plus"></i>
                 </div>
             </div>
-            <div class="cbp-caption">
-                <h3>Misty Lake</h3>
-                <p>Morning mist rising from a tranquil lake, with mountains reflecting in the perfectly still water.</p>
+            <div class="cbp-caption cbp-caption-active">
+                <h3>PASSION PROJECT</h3>
+                <p>MTN is a telecommunication company established in Zambia with over Hundreds of Networking platforms of communication.</p>
             </div>
         </div>
         </a>
-        <!-- Item 5 -->
-         <a href="https://www.youtube.com/">
+        <!-- Item 1 -->
+         <a href="Clientabbank.html">
         <div class="cbp-item">
             <div class="cbp-img-wrapper">
-                <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05" alt="Misty Lake" class="cbp-img">
+                 <img src="ab bank.png" style="height:fit-content;" alt="Mountain Landscape" class="cbp-img">
                 <div class="overlay"></div>
                 <div class="icon">
-                    <i class="fas fa-cloud"></i>
+                    <i class="fas fa-search-plus"></i>
                 </div>
             </div>
-            <div class="cbp-caption">
-                <h3>Misty Lake</h3>
-                <p>Morning mist rising from a tranquil lake, with mountains reflecting in the perfectly still water.</p>
+            <div class="cbp-caption cbp-caption-active">
+                <h3>PASSION PROJECT</h3>
+                <p>AB bank an international networked bank across the world to transfer money and to lend money.</p>
             </div>
         </div>
         </a>
-        <!-- Item 5 -->
-         <a href="https://www.youtube.com/">
-        <div class="cbp-item">
-            <div class="cbp-img-wrapper">
-                <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05" alt="Misty Lake" class="cbp-img">
-                <div class="overlay"></div>
-                <div class="icon">
-                    <i class="fas fa-cloud"></i>
-                </div>
-            </div>
-            <div class="cbp-caption">
-                <h3>Misty Lake</h3>
-                <p>Morning mist rising from a tranquil lake, with mountains reflecting in the perfectly still water.</p>
-            </div>
-        </div>
-        </a>
-         <!-- Item 5 -->
-         <a href="https://www.youtube.com/">
-        <div class="cbp-item">
-            <div class="cbp-img-wrapper">
-                <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05" alt="Misty Lake" class="cbp-img">
-                <div class="overlay"></div>
-                <div class="icon">
-                    <i class="fas fa-cloud"></i>
-                </div>
-            </div>
-            <div class="cbp-caption">
-                <h3>Misty Lake</h3>
-                <p>Morning mist rising from a tranquil lake, with mountains reflecting in the perfectly still water.</p>
-            </div>
-        </div>
-        </a>
-         <!-- Item 5 -->
-         <a href="https://www.youtube.com/">
-        <div class="cbp-item">
-            <div class="cbp-img-wrapper">
-                <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05" alt="Misty Lake" class="cbp-img">
-                <div class="overlay"></div>
-                <div class="icon">
-                    <i class="fas fa-cloud"></i>
-                </div>
-            </div>
-            <div class="cbp-caption">
-                <h3>Misty Lake</h3>
-                <p>Morning mist rising from a tranquil lake, with mountains reflecting in the perfectly still water.</p>
-            </div>
-        </div>
-        </a>
-        
-    
+
+   
+
+    <!-- Loading Spinner -->
+    <div class="spinner-container" id="spinner">
+        <div class="spinner"></div>
     </div>
+  
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    
     <script>
+        // Project Slider Functionality
         document.addEventListener('DOMContentLoaded', function() {
+            const projectSlides = document.querySelector('.project-slides');
+            const slides = document.querySelectorAll('.project-slide');
+            const prevBtn = document.querySelector('.project-prev');
+            const nextBtn = document.querySelector('.project-next');
+            let currentSlide = 0;
+            const slideCount = slides.length;
+            
+            // Set initial slide position
+            updateSlidePosition();
+            
+            // Next button event
+            nextBtn.addEventListener('click', function() {
+                currentSlide = (currentSlide + 1) % slideCount;
+                updateSlidePosition();
+            });
+            
+            // Previous button event
+            prevBtn.addEventListener('click', function() {
+                currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+                updateSlidePosition();
+            });
+            
+            // Auto slide every 4 seconds
+            setInterval(function() {
+                currentSlide = (currentSlide + 1) % slideCount;
+                updateSlidePosition();
+            }, 5000);
+            
+            // Update slide position
+            function updateSlidePosition() {
+                projectSlides.style.transform = `translateX(-${currentSlide * 100}%)`;
+            }
+            
+            // Form submission with spinner
+            const contactForm = document.getElementById('contactForm');
+            const spinner = document.getElementById('spinner');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Show spinner
+                    spinner.style.display = 'flex';
+                    
+                    // Simulate form submission delay
+                    setTimeout(function() {
+                        // Hide spinner
+                        spinner.style.display = 'none';
+                        
+                        // Show success message
+                        alert('Thank you for your message! We will get back to you soon.');
+                        
+                        // Reset form
+                        contactForm.reset();
+                    }, 2000);
+                });
+            }
+            
+            // Navbar scroll effect
+            window.addEventListener('scroll', function() {
+                const navbar = document.querySelector('.navbar');
+                if (window.scrollY > 50) {
+                    navbar.style.padding = '10px 0';
+                    navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+                } else {
+                    navbar.style.padding = '15px 0';
+                    navbar.style.boxShadow = 'none';
+                }
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 70,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            // Slide-up animation on scroll
+        function checkSlide() {
+            const slideUpElements = document.querySelectorAll('.slide-up');
+            
+            slideUpElements.forEach(element => {
+                const slideInAt = (window.scrollY + window.innerHeight) - element.offsetHeight / 2;
+                const elementBottom = element.offsetTop + element.offsetHeight;
+                const isHalfShown = slideInAt > element.offsetTop;
+                const isNotScrolledPast = window.scrollY < elementBottom;
+                
+                if (isHalfShown && isNotScrolledPast) {
+                    element.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', checkSlide);
+        window.addEventListener('load', checkSlide);
+
+            
+            // Button hover effects
+            const buttons = document.querySelectorAll('.btn');
+            buttons.forEach(button => {
+                button.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-3px)';
+                });
+                
+                button.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        });
+         document.addEventListener('DOMContentLoaded', function() {
             const items = document.querySelectorAll('.cbp-item');
             
             items.forEach(item => {
